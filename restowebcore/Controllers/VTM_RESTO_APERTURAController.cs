@@ -29,7 +29,34 @@ namespace CodesicorpCore.Controllers
             return await oDominio.SeleccionarRegistro(entidad);
         }
 
+        [HttpPost("EliminarRegistro")]
+        [Authorize(Roles = "Administrator,User")]
+        public async Task<MENSAJE_Entity> EliminarRegistro(VTM_RESTO_APERTURA_Entity entidad)
+        {
+            VTM_RESTO_APERTURA_Domain oDominio = new VTM_RESTO_APERTURA_Domain();
 
+            return await oDominio.EliminarRegistro(entidad);
+        }
+
+        [HttpPost("InsertarRegistro")]
+        [Authorize(Roles = "Administrator,User")]
+        public async Task<MENSAJE_Entity> InsertarRegistro(VTM_RESTO_APERTURA_Entity entidades)
+        {
+            VTM_RESTO_APERTURA_Domain oDominio = new VTM_RESTO_APERTURA_Domain();
+
+            return await oDominio.InsertarRegistro(entidades);
+
+        }
+
+        [HttpPost("EditarRegistro")]
+        [Authorize(Roles = "Administrator,User")]
+        public async Task<MENSAJE_Entity> EditarRegistro(VTM_RESTO_APERTURA_Entity entidades)
+        {
+            VTM_RESTO_APERTURA_Domain oDominio = new VTM_RESTO_APERTURA_Domain();
+
+            return await oDominio.EditarRegistro(entidades);
+
+        }
 
     }
 }

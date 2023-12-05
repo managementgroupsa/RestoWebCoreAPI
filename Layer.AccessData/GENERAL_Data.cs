@@ -73,6 +73,25 @@ namespace Layer.AccessData
                 var oEnt = new MENSAJE_Entity(); oEntidad = oEnt;
             }
 
+            if (cTipo == "VTD_RESTO_APERTURA_Entity")
+            {
+                var oEnt = new VTD_RESTO_APERTURA_Entity(); oEntidad = oEnt;
+            }
+
+            if (cTipo == "VTD_RESTO_APERTURA_PEDIDO_Entity")
+            {
+                var oEnt = new VTD_RESTO_APERTURA_PEDIDO_Entity(); oEntidad = oEnt;
+            }
+
+            if (cTipo == "VTM_RESTO_APERTURA_Entity")
+            {
+                var oEnt = new VTM_RESTO_APERTURA_Entity(); oEntidad = oEnt;
+            }
+
+            if (cTipo == "VTM_RESTO_MESAS_Entity")
+            {
+                var oEnt = new VTM_RESTO_MESAS_Entity(); oEntidad = oEnt;
+            }
 
             #region CLASE GENERAL
 

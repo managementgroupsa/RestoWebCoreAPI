@@ -33,7 +33,23 @@ namespace Layer.AccessData
             return await oData.SeleccionarRegistro("spVTD_RESTO_APERTURA_PEDIDO", "BUSCARREGISTRO", "Layer.Entity", "VTD_RESTO_APERTURA_PEDIDO_Entity", entidad);
         }
 
+        public async Task<MENSAJE_Entity> EliminarRegistro(VTD_RESTO_APERTURA_PEDIDO_Entity entidad)
+        {
+            GENERAL_Data oData = new GENERAL_Data();
+            return await oData.EliminarRegistro("spVTD_RESTO_APERTURA_PEDIDO", "ELIMINAR", "Layer.Entity", "VTD_RESTO_APERTURA_PEDIDO_Entity", entidad);
+        }
 
+        public async Task<MENSAJE_Entity> InsertarRegistro(VTD_RESTO_APERTURA_PEDIDO_Entity entidad)
+        {
+            GENERAL_Data oData = new GENERAL_Data();
+            return await oData.InsertarRegistro("spVTD_RESTO_APERTURA_PEDIDO", "INSERTAR", "Layer.Entity", "VTD_RESTO_APERTURA_PEDIDO_Entity", entidad);
+        }
+
+        public async Task<MENSAJE_Entity> EditarRegistro(VTD_RESTO_APERTURA_PEDIDO_Entity entidad)
+        {
+            GENERAL_Data oData = new GENERAL_Data();
+            return await oData.EditarRegistro("spVTD_RESTO_APERTURA_PEDIDO", "EDITAR", "Layer.Entity", "VTD_RESTO_APERTURA_PEDIDO_Entity", entidad);
+        }
 
     }
 }

@@ -21,6 +21,22 @@ namespace Layer.Domain
             return await oData.SeleccionarRegistro(entidad);
         }
 
+        public async Task<MENSAJE_Entity> EliminarRegistro(VTM_RESTO_APERTURA_Entity entidad)
+        {
+            VTM_RESTO_APERTURA_Data oData = new VTM_RESTO_APERTURA_Data();
+            return await oData.EliminarRegistro(entidad);
+        }
 
+        public async Task<MENSAJE_Entity> InsertarRegistro(VTM_RESTO_APERTURA_Entity entidad)
+        {
+            VTM_RESTO_APERTURA_Data oData = new VTM_RESTO_APERTURA_Data();
+            return await oData.InsertarRegistro(entidad);
+        }
+
+        public async Task<MENSAJE_Entity> EditarRegistro(VTM_RESTO_APERTURA_Entity entidad)
+        {
+            VTM_RESTO_APERTURA_Data oData = new VTM_RESTO_APERTURA_Data();
+            return await oData.EditarRegistro(entidad);
+        }
     }
 }

@@ -34,6 +34,23 @@ namespace Layer.AccessData
         }
 
 
+        public async Task<MENSAJE_Entity> EliminarRegistro(VTM_RESTO_APERTURA_Entity entidad)
+        {
+            GENERAL_Data oData = new GENERAL_Data();
+            return await oData.EliminarRegistro("spVTM_RESTO_APERTURA", "ELIMINAR", "Layer.Entity", "VTM_RESTO_APERTURA_Entity", entidad);
+        }
+
+        public async Task<MENSAJE_Entity> InsertarRegistro(VTM_RESTO_APERTURA_Entity entidad)
+        {
+            GENERAL_Data oData = new GENERAL_Data();
+            return await oData.InsertarRegistro("spVTM_RESTO_APERTURA", "INSERTAR", "Layer.Entity", "VTM_RESTO_APERTURA_Entity", entidad);
+        }
+
+        public async Task<MENSAJE_Entity> EditarRegistro(VTM_RESTO_APERTURA_Entity entidad)
+        {
+            GENERAL_Data oData = new GENERAL_Data();
+            return await oData.EditarRegistro("spVTM_RESTO_APERTURA", "EDITAR", "Layer.Entity", "VTM_RESTO_APERTURA_Entity", entidad);
+        }
 
     }
 }
