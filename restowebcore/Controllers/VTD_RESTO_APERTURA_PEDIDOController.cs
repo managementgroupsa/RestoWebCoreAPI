@@ -11,7 +11,7 @@ namespace CodesicorpCore.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class VTD_RESTO_APERTURA_PEDIDO_Controller : ControllerBase
+    public class VTD_RESTO_APERTURA_PEDIDOController : ControllerBase
     {
         [HttpPost("SeleccionarTodos")]
         [Authorize(Roles = "Administrator,User")]
