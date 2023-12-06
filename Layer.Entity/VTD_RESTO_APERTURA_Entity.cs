@@ -9,6 +9,8 @@ namespace Layer.Entity
 {
     public class VTD_RESTO_APERTURA_Entity
     {
+        [MaxLength(20)]
+        public string @Accion { get; set; }
         [MaxLength(3)]
         public string Emp_cCodigo { get; set; }
         [MaxLength(4)]

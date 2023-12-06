@@ -9,6 +9,8 @@ namespace Layer.Entity
 {
     public class VTM_RESTO_MESAS_Entity
     {
+        [MaxLength(20)]
+        public string @Accion { get; set; }
         [MaxLength(3)]
         public string Emp_cCodigo { get; set; }
         [MaxLength(5)]
@@ -20,13 +22,8 @@ namespace Layer.Entity
         [MaxLength(1)]
         public string Mes_cEstado { get; set; }
         [MaxLength(20)]
-        public string Mes_cUserCrea { get; set; }
-        public DateTime Mes_dFechaCrea { get; set; }
-        [MaxLength(20)]
-        public string Mes_cUserModifica { get; set; }
-        public DateTime Mes_dFechaModifica { get; set; }
-        [MaxLength(20)]
-        public string Mes_cEquipoUser { get; set; }
+        public string Mes_cUser { get; set; }
+
 
     }
 

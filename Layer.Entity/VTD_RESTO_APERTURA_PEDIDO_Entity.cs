@@ -9,6 +9,8 @@ namespace Layer.Entity
 {
     public class VTD_RESTO_APERTURA_PEDIDO_Entity
     {
+        [MaxLength(20)]
+        public string @Accion { get; set; }
         [MaxLength(3)]
         public string Emp_cCodigo { get; set; }
         [MaxLength(4)]
@@ -26,14 +28,21 @@ namespace Layer.Entity
         [MaxLength(1)]
         public string Ped_cEstado { get; set; }
         [MaxLength(20)]
-        public string Ped_cUserCrea { get; set; }
-        public DateTime Ped_dFechaCrea { get; set; }
-        [MaxLength(20)]
-        public string Ped_cUserModifica { get; set; }
-        public DateTime Ped_dFechaModifica { get; set; }
-        [MaxLength(20)]
-        public string Ped_cEquipoUser { get; set; }
+        public string Ped_cUser { get; set; }
 
+        [Display(Name = "NoParameter")]
+        [MaxLength(100)]
+        public string Cab_cDescripLarga { get; set; }
+
+        [Display(Name = "NoParameter")]
+        [MaxLength(100)]
+        public string Ent_cPersona { get; set; }
+
+        [Display(Name = "NoParameter")]
+        [MaxLength(100)]
+
+        public string Mes_cDescripcion { get; set; }
+        
     }
 
 

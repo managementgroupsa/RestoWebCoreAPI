@@ -9,6 +9,8 @@ namespace Layer.Entity
 {
     public class VTM_RESTO_APERTURA_Entity
     {
+        [MaxLength(20)]
+        public string @Accion { get; set; }
         [MaxLength(3)]
         public string Emp_cCodigo { get; set; }
         [MaxLength(4)]
@@ -25,13 +27,8 @@ namespace Layer.Entity
         [MaxLength(1000)]
         public string Ape_cComentario { get; set; }
         [MaxLength(20)]
-        public string Ape_cUserCrea { get; set; }
-        public DateTime Ape_dFechaCrea { get; set; }
-        [MaxLength(20)]
-        public string Ape_cUserModifica { get; set; }
-        public DateTime Ape_dFechaModifica { get; set; }
-        [MaxLength(20)]
-        public string Ape_cEquipoUser { get; set; }
+        public string Ape_cUser { get; set; }
+
 
     }
 
