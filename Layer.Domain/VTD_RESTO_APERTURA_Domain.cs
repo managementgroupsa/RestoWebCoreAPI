@@ -8,6 +8,17 @@ namespace Layer.Domain
 {
     public class VTD_RESTO_APERTURA_Domain
     {
+        public async Task<MENSAJE_Entity> CambiarEstadoPedido(VTD_RESTO_APERTURA_Entity entidad)
+        {
+            VTD_RESTO_APERTURA_Data oData = new VTD_RESTO_APERTURA_Data();
+            return await oData.CambiarEstadoPedido(entidad);
+        }
+
+        public async Task<MENSAJE_Entity> CambiarMeseroPedido(VTD_RESTO_APERTURA_Entity entidad)
+        {
+            VTD_RESTO_APERTURA_Data oData = new VTD_RESTO_APERTURA_Data();
+            return await oData.CambiarMeseroPedido(entidad);
+        }
 
         public async Task<List<object>> SeleccionarTodos(VTD_RESTO_APERTURA_Entity entidad)
         {

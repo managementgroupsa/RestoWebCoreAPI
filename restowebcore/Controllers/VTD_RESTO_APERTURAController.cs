@@ -7,12 +7,33 @@ using Layer.Domain;
 using System.Data;
 using Microsoft.AspNetCore.Authorization;
 
-namespace CodesicorpCore.Controllers
+namespace restowebcore.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
     public class VTD_RESTO_APERTURAController : ControllerBase
     {
+        [HttpPost("CambiarMeseroPedido")]
+        [Authorize(Roles = "Administrator,User")]
+        public async Task<MENSAJE_Entity> CambiarMeseroPedido(VTD_RESTO_APERTURA_Entity entidades)
+        {
+            VTD_RESTO_APERTURA_Domain oDominio = new VTD_RESTO_APERTURA_Domain();
+
+            return await oDominio.CambiarMeseroPedido(entidades);
+
+        }
+
+        [HttpPost("CambiarEstadoPedido")]
+        [Authorize(Roles = "Administrator,User")]
+        public async Task<MENSAJE_Entity> CambiarEstadoPedido(VTD_RESTO_APERTURA_Entity entidades)
+        {
+            VTD_RESTO_APERTURA_Domain oDominio = new VTD_RESTO_APERTURA_Domain();
+
+            return await oDominio.CambiarEstadoPedido(entidades);
+
+        }
+
+
         [HttpPost("SeleccionarTodos")]
         [Authorize(Roles = "Administrator,User")]
         public async Task<List<object>> SeleccionarTodos(VTD_RESTO_APERTURA_Entity entidad)

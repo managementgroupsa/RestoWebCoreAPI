@@ -10,7 +10,7 @@ namespace Layer.Entity
     public class VTM_RESTO_MESAS_Entity
     {
         [MaxLength(20)]
-        public string @Accion { get; set; }
+        public string Accion { get; set; }
         [MaxLength(3)]
         public string Emp_cCodigo { get; set; }
         [MaxLength(5)]

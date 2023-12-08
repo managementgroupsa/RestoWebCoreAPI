@@ -93,6 +93,12 @@ namespace Layer.AccessData
                 var oEnt = new VTM_RESTO_MESAS_Entity(); oEntidad = oEnt;
             }
 
+            if (cTipo == "LGM_CATALOGO_BS_Entity")
+            {
+                var oEnt = new LGM_CATALOGO_BS_Entity(); oEntidad = oEnt;
+            }
+
+
             #region CLASE GENERAL
 
             if (cTipo == "CNT_TIPO_MONEDA_Entity")

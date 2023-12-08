@@ -20,6 +20,17 @@ namespace Layer.AccessData
             return cadenaConexion;
         }
 
+        public async Task<MENSAJE_Entity> CambiarMeseroPedido(VTD_RESTO_APERTURA_Entity entidad)
+        {
+            GENERAL_Data oData = new GENERAL_Data();
+            return await oData.EditarRegistro("spVTD_RESTO_APERTURA", "CAMBIARMESEROPEDIDO", "Layer.Entity", "VTD_RESTO_APERTURA_Entity", entidad);
+        }
+
+        public async Task<MENSAJE_Entity> CambiarEstadoPedido(VTD_RESTO_APERTURA_Entity entidad)
+        {
+            GENERAL_Data oData = new GENERAL_Data();
+            return await oData.EditarRegistro("spVTD_RESTO_APERTURA", "CAMBIARESTADOPEDIDO", "Layer.Entity", "VTD_RESTO_APERTURA_Entity", entidad);
+        }
 
         public async Task<List<object>> SeleccionarTodos(VTD_RESTO_APERTURA_Entity entidad)
         {

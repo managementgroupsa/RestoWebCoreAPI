@@ -20,6 +20,11 @@ namespace Layer.AccessData
             return cadenaConexion;
         }
 
+        public async Task<List<object>> BuscarMesasPorUsuario(VTM_RESTO_MESAS_Entity entidad)
+        {
+            GENERAL_Data oData = new GENERAL_Data();
+            return await oData.SeleccionarTodos("spVTM_RESTO_MESAS", "BUSCARMESASXUSUARIO", "Layer.Entity", "VTM_RESTO_MESAS_Entity", entidad);
+        }
 
         public async Task<List<object>> SeleccionarTodos(VTM_RESTO_MESAS_Entity entidad)
         {

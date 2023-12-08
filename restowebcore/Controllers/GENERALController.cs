@@ -7,7 +7,7 @@ using Layer.Domain;
 using System.Data;
 using Microsoft.AspNetCore.Authorization;
 
-namespace CodesicorpCore.Controllers
+namespace restowebcore.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

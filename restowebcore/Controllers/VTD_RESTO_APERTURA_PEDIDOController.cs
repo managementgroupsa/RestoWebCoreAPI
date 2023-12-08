@@ -7,12 +7,33 @@ using Layer.Domain;
 using System.Data;
 using Microsoft.AspNetCore.Authorization;
 
-namespace CodesicorpCore.Controllers
+namespace restowebcore.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
     public class VTD_RESTO_APERTURA_PEDIDOController : ControllerBase
     {
+
+
+        [HttpPost("GrabarPedidoPorUsuario")]
+        [Authorize(Roles = "Administrator,User")]
+        public async Task<MENSAJE_Entity> GrabarPedidoPorUsuario(VTD_RESTO_APERTURA_PEDIDO_Entity entidades)
+        {
+            VTD_RESTO_APERTURA_PEDIDO_Domain oDominio = new VTD_RESTO_APERTURA_PEDIDO_Domain();
+
+            return await oDominio.GrabarPedidoPorUsuario(entidades);
+
+        }
+
+
+        [HttpPost("BuscarPedidosPorUsuario")]
+        [Authorize(Roles = "Administrator,User")]
+        public async Task<List<object>> BuscarPedidosPorUsuario(VTD_RESTO_APERTURA_PEDIDO_Entity entidad)
+        {
+            VTD_RESTO_APERTURA_PEDIDO_Domain oDominio = new VTD_RESTO_APERTURA_PEDIDO_Domain();
+            return await oDominio.BuscarPedidosPorUsuario(entidad);
+        }
+
         [HttpPost("SeleccionarTodos")]
         [Authorize(Roles = "Administrator,User")]
         public async Task<List<object>> SeleccionarTodos(VTD_RESTO_APERTURA_PEDIDO_Entity entidad)

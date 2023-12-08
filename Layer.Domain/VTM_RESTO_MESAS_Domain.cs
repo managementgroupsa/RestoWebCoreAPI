@@ -8,6 +8,12 @@ namespace Layer.Domain
 {
     public class VTM_RESTO_MESAS_Domain
     {
+        
+        public async Task<List<object>> BuscarMesasPorUsuario(VTM_RESTO_MESAS_Entity entidad)
+        {
+            VTM_RESTO_MESAS_Data oData = new VTM_RESTO_MESAS_Data();
+            return await oData.BuscarMesasPorUsuario(entidad);
+        }
 
         public async Task<List<object>> SeleccionarTodos(VTM_RESTO_MESAS_Entity entidad)
         {

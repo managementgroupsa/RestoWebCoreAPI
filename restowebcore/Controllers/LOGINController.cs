@@ -13,7 +13,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Linq;
 
-namespace CodesicorpCore.Controllers
+namespace restowebcore.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

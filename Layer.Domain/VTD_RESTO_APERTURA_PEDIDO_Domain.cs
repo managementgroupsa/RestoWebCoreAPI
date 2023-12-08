@@ -9,6 +9,20 @@ namespace Layer.Domain
     public class VTD_RESTO_APERTURA_PEDIDO_Domain
     {
 
+
+
+        public async Task<MENSAJE_Entity> GrabarPedidoPorUsuario(VTD_RESTO_APERTURA_PEDIDO_Entity entidad)
+        {
+            VTD_RESTO_APERTURA_PEDIDO_Data oData = new VTD_RESTO_APERTURA_PEDIDO_Data();
+            return await oData.GrabarPedidoPorUsuario(entidad);
+        }
+
+        public async Task<List<object>> BuscarPedidosPorUsuario(VTD_RESTO_APERTURA_PEDIDO_Entity entidad)
+        {
+            VTD_RESTO_APERTURA_PEDIDO_Data oData = new VTD_RESTO_APERTURA_PEDIDO_Data();
+            return await oData.BuscarPedidosPorUsuario(entidad);
+        }
+
         public async Task<List<object>> SeleccionarTodos(VTD_RESTO_APERTURA_PEDIDO_Entity entidad)
         {
             VTD_RESTO_APERTURA_PEDIDO_Data oData = new VTD_RESTO_APERTURA_PEDIDO_Data();
