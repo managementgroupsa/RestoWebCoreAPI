@@ -14,7 +14,7 @@ namespace Layer.Entity
 
         public VTM_RESTO_APERTURA_Entity Cabecera { get; set; }
 
-        public VTD_RESTO_APERTURA_Entity Detalles { get; set; }
+        public VTD_RESTO_APERTURA_Entity Detalle { get; set; }
 
         public List<VTD_RESTO_APERTURA_PEDIDO_Entity> Pedidos { get; set; }
 

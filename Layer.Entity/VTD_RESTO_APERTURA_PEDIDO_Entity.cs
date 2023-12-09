@@ -23,8 +23,6 @@ namespace Layer.Entity
         [MaxLength(10)]
         public string Ped_cNummov { get; set; }
 
-        [MaxLength(5)]
-        public string Mes_cCodigo { get; set; }
         public int Ped_nItem { get; set; }
         [MaxLength(6)]
         public string Cab_cCatalogo { get; set; }
