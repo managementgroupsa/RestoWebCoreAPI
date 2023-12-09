@@ -25,7 +25,7 @@ namespace Layer.AccessData
         public async Task<MENSAJE_Entity> GrabarPedidoPorUsuario(VTD_RESTO_APERTURA_PEDIDO_Entity entidad)
         {
             GENERAL_Data oData = new GENERAL_Data();
-            return await oData.InsertarRegistro("spVTD_RESTO_APERTURA_PEDIDO", "GRABAPEDIDOXUSER", "Layer.Entity", "VTD_RESTO_APERTURA_PEDIDO_Entity", entidad);
+            return await oData.InsertarRegistro("spVTD_RESTO_APERTURA_PEDIDO", "INSERTAR", "Layer.Entity", "VTD_RESTO_APERTURA_PEDIDO_Entity", entidad);
         }
 
         public async Task<List<object>> BuscarPedidosPorUsuario(VTD_RESTO_APERTURA_PEDIDO_Entity entidad)

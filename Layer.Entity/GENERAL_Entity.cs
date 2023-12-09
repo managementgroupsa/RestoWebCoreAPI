@@ -9,7 +9,16 @@ namespace Layer.Entity
 {
 
 
+    public class VENTAS_Entity
+    {
 
+        public VTM_RESTO_APERTURA_Entity Cabecera { get; set; }
+
+        public VTD_RESTO_APERTURA_Entity Detalles { get; set; }
+
+        public List<VTD_RESTO_APERTURA_PEDIDO_Entity> Pedidos { get; set; }
+
+    }
 
     public class Estado_Documento
     {

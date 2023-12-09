@@ -21,6 +21,14 @@ namespace restowebcore.Controllers
             return await oDominio.Meses(entidad);
         }
 
+        [HttpPost("GrabaVenta")]
+        [Authorize(Roles = "Administrator,User")]
+        public async Task<MENSAJE_Entity> GrabaVenta(VENTAS_Entity entidad, string cEmpresa, string cAnio, string cNummov)
+        {
+            GENERAL_Domain oDominio = new GENERAL_Domain();
+            return await oDominio.GrabaVenta(entidad, cEmpresa, cAnio, cNummov);
+        }
+
         //[HttpPost("BuscaTokenNubefact")]
         //[Authorize(Roles = "Administrator,User")]
         //public async Task<List<object>> BuscaTokenNubefact(EMPRESA_Entity entidad)

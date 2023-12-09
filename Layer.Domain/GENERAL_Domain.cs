@@ -52,7 +52,11 @@ namespace Layer.Domain
         }
 
 
-
+        public async Task<MENSAJE_Entity> GrabaVenta(VENTAS_Entity entidad, string cEmpresa, string cAnio, string cNummov)
+        {
+            VENTAS_Data oDominio = new VENTAS_Data();
+            return await oDominio.GrabaVenta(entidad);
+        }
 
 
 

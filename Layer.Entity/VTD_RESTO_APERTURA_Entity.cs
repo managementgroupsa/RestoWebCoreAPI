@@ -20,12 +20,21 @@ namespace Layer.Entity
 
         [MaxLength(5)]
         public string Pvt_cCodigo { get; set; }
+
+        [MaxLength(10)]
+        public string Ped_cNummov { get; set; }
+
+        [MaxLength(5)]
+        public string Mes_cCodigo { get; set; }
+
         [MaxLength(5)]
         public string Ent_cCodEntidad { get; set; }
         [MaxLength(1)]
         public string Ten_cTipoEntidad { get; set; }
         [MaxLength(1)]
         public string Res_cEstado { get; set; }
+        [MaxLength(20)]
+        public string Res_cUser { get; set; }
     }
 
 
