@@ -32,9 +32,9 @@ namespace Layer.Entity
         [MaxLength(1)]
         public string Ten_cTipoEntidad { get; set; }
         [MaxLength(1)]
-        public string Res_cEstado { get; set; }
+        public string Ape_cEstado { get; set; }
         [MaxLength(20)]
-        public string Res_cUser { get; set; }
+        public string Ape_cUser { get; set; }
     }
 
 
