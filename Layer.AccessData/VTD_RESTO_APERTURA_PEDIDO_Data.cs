@@ -20,7 +20,11 @@ namespace Layer.AccessData
             return cadenaConexion;
         }
 
-
+        public async Task<List<object>> BuscarCatalogo(VTD_RESTO_APERTURA_PEDIDO_Entity entidad)
+        {
+            GENERAL_Data oData = new GENERAL_Data();
+            return await oData.SeleccionarTodos("spVTD_RESTO_APERTURA_PEDIDO", "BUSCARCATALOGO", "Layer.Entity", "VTD_RESTO_APERTURA_PEDIDO_Entity", entidad);
+        }
 
         public async Task<MENSAJE_Entity> GrabarPedidoPorUsuario(VTD_RESTO_APERTURA_PEDIDO_Entity entidad)
         {

@@ -46,7 +46,14 @@ namespace Layer.Entity
         [MaxLength(100)]
 
         public string Mes_cDescripcion { get; set; }
-        
+
+        [Display(Name = "NoParameter")]
+        [MaxLength(5)]
+        public string Mes_cCodigo { get; set; }
+
+        [Display(Name = "NoParameter")]
+        [MaxLength(20)]
+        public string Ape_cUserCrea { get; set; }
     }
 
 

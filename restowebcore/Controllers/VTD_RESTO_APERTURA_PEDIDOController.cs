@@ -14,6 +14,13 @@ namespace restowebcore.Controllers
     public class VTD_RESTO_APERTURA_PEDIDOController : ControllerBase
     {
 
+        [HttpPost("BuscarCatalogo")]
+        [Authorize(Roles = "Administrator,User")]
+        public async Task<List<object>> BuscarCatalogo(VTD_RESTO_APERTURA_PEDIDO_Entity entidad)
+        {
+            VTD_RESTO_APERTURA_PEDIDO_Domain oDominio = new VTD_RESTO_APERTURA_PEDIDO_Domain();
+            return await oDominio.BuscarCatalogo(entidad);
+        }
 
         [HttpPost("GrabarPedidoPorUsuario")]
         [Authorize(Roles = "Administrator,User")]

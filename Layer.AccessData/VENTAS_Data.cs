@@ -80,7 +80,7 @@ namespace Layer.AccessData
                 {
                     cAccion = "EDITAR";
 
-                    query = "exec spVTD_RESTO_APERTURA 'ELIMINARTODOS', '" + Emp_cCodigo + "', '" + Pan_cAnio + "' , '" + Res_cNummov + "' , '" + Pvt_cCodigo + "' , '" + Ped_cNummov + "' ";
+                    query = "exec spVTD_RESTO_APERTURA_PEDIDO 'ELIMINARTODOS', '" + Emp_cCodigo + "', '" + Pan_cAnio + "' , '" + Res_cNummov + "' , '" + Pvt_cCodigo + "' , '" + Ped_cNummov + "' ";
 
                     SqlDataAdapter DaeElimina = new SqlDataAdapter(query, conectar);
                     DataTable dtResultElimina = new DataTable();
@@ -108,7 +108,7 @@ namespace Layer.AccessData
                 foreach (var pedido in oEntidad.Pedidos )
                 {
 
-                    comando = new SqlCommand("VTD_RESTO_APERTURA_PEDIDO", conectar);
+                    comando = new SqlCommand("spVTD_RESTO_APERTURA_PEDIDO", conectar);
                     comando.CommandType = CommandType.StoredProcedure;
 
                     comando.Transaction = tran;
@@ -116,11 +116,11 @@ namespace Layer.AccessData
                     SqlParameter prm0 = new SqlParameter("@Accion", "INSERTAR");
                     SqlParameter prm1 = new SqlParameter("@Emp_cCodigo", Emp_cCodigo);
                     SqlParameter prm2 = new SqlParameter("@Pan_cAnio", Pan_cAnio);
-                    SqlParameter prm3 = new SqlParameter("@Res_cNummov", Ped_cNummov);
+                    SqlParameter prm3 = new SqlParameter("@Res_cNummov", Res_cNummov);
                     SqlParameter prm4 = new SqlParameter("@Pvt_cCodigo", Pvt_cCodigo);
                     SqlParameter prm5 = new SqlParameter("@Ped_cNummov", Ped_cNummov);
 
-                    SqlParameter prm6 = new SqlParameter("@Mes_cCodigo", Mes_cCodigo);
+                    
                     SqlParameter prm7 = new SqlParameter("@Ped_nItem", pedido.Ped_nItem  );
                     SqlParameter prm8 = new SqlParameter("@Cab_cCatalogo", pedido.Cab_cCatalogo );
                     SqlParameter prm9 = new SqlParameter("@Ped_nCantidad", pedido.Ped_nCantidad );
@@ -134,7 +134,7 @@ namespace Layer.AccessData
                     comando.Parameters.Add(prm3);
                     comando.Parameters.Add(prm4);
                     comando.Parameters.Add(prm5);
-                    comando.Parameters.Add(prm6);
+                    
                     comando.Parameters.Add(prm7);
                     comando.Parameters.Add(prm8);
                     comando.Parameters.Add(prm9);
