@@ -50,20 +50,20 @@ namespace Layer.AccessData
         }
 
 
- 
-    public async Task<MENSAJE_Entity> GrabaPedido(VENTAS_Entity oEntidad)
+
+        public async Task<MENSAJE_Entity> GrabaPedido(VENTAS_Entity oEntidad)
         {
             MENSAJE_Entity oResultado = new MENSAJE_Entity();
             Int32 recordsAffected = 0;
             string query = "";
             string jsonText = JsonConvert.SerializeObject(oEntidad);
 
-            string Emp_cCodigo = oEntidad.Cabecera.Emp_cCodigo ;
-            string Pan_cAnio = oEntidad.Cabecera.Pan_cAnio ;
+            string Emp_cCodigo = oEntidad.Cabecera.Emp_cCodigo;
+            string Pan_cAnio = oEntidad.Cabecera.Pan_cAnio;
             string Res_cNummov = oEntidad.Cabecera.Res_cNummov;
-            string Pvt_cCodigo = oEntidad.Cabecera.Pvt_cCodigo ;
-            string Ped_cNummov = oEntidad.Detalle.Ped_cNummov; 
-            string Mes_cCodigo = oEntidad.Detalle.Mes_cCodigo; 
+            string Pvt_cCodigo = oEntidad.Cabecera.Pvt_cCodigo;
+            string Ped_cNummov = oEntidad.Detalle.Ped_cNummov;
+            string Mes_cCodigo = oEntidad.Detalle.Mes_cCodigo;
 
             string cAccion = "INSERTAR";
 
@@ -91,6 +91,20 @@ namespace Layer.AccessData
                 }
                 else
                 {
+
+                    if (string.IsNullOrEmpty(Res_cNummov))
+                    {
+                        query = "exec spVTM_RESTO_APERTURA 'ULTIMONUMMOV', '" + Emp_cCodigo + "', '" + Pan_cAnio + "' , '' , '" + Pvt_cCodigo + "' ";
+
+                        SqlDataAdapter DaRes_cNummov = new SqlDataAdapter(query, conectar);
+                        DataTable dtResultRes_cNummov = new DataTable();
+
+                        DaRes_cNummov.SelectCommand.Transaction = tran;
+                        DaRes_cNummov.Fill(dtResultRes_cNummov);
+
+                        Res_cNummov = dtResultRes_cNummov.Rows[0]["Valor"].ToString();
+                    }
+
                     query = "exec spVTD_RESTO_APERTURA 'SIGUIENTECODIGO', '" + Emp_cCodigo + "', '" + Pan_cAnio + "' , '" + Res_cNummov + "' , '" + Pvt_cCodigo + "' ";
 
                     SqlDataAdapter Da = new SqlDataAdapter(query, conectar);
@@ -101,11 +115,43 @@ namespace Layer.AccessData
 
                     Ped_cNummov = dtResult.Rows[0]["Valor"].ToString();
 
+                    //--------------------------------------------------------
+
+                    comandoDet = new SqlCommand("spVTD_RESTO_APERTURA", conectar);
+                    comandoDet.CommandType = CommandType.StoredProcedure;
+
+                    comandoDet.Transaction = tran;
+
+                    SqlParameter prm0 = new SqlParameter("@Accion", "INSERTAR");
+                    SqlParameter prm1 = new SqlParameter("@Emp_cCodigo", Emp_cCodigo);
+                    SqlParameter prm2 = new SqlParameter("@Pan_cAnio", Pan_cAnio);
+                    SqlParameter prm3 = new SqlParameter("@Res_cNummov", Res_cNummov);
+                    SqlParameter prm4 = new SqlParameter("@Pvt_cCodigo", Pvt_cCodigo);
+                    SqlParameter prm5 = new SqlParameter("@Ped_cNummov", Ped_cNummov);
+                    SqlParameter prm6 = new SqlParameter("@Mes_cCodigo", Mes_cCodigo);
+                    SqlParameter prm7 = new SqlParameter("@Ent_cCodEntidad", "");
+                    SqlParameter prm8 = new SqlParameter("@Ten_cTipoEntidad", "");
+                    SqlParameter prm9 = new SqlParameter("@Ape_cEstado", "A");
+                    SqlParameter prm10 = new SqlParameter("@Ape_cUser", oEntidad.Detalle.Ape_cUser );
+
+                    comandoDet.Parameters.Add(prm0);
+                    comandoDet.Parameters.Add(prm1);
+                    comandoDet.Parameters.Add(prm2);
+                    comandoDet.Parameters.Add(prm3);
+                    comandoDet.Parameters.Add(prm4);
+                    comandoDet.Parameters.Add(prm5);
+                    comandoDet.Parameters.Add(prm6);
+                    comandoDet.Parameters.Add(prm7);
+                    comandoDet.Parameters.Add(prm8);
+                    comandoDet.Parameters.Add(prm9);
+                    comandoDet.Parameters.Add(prm10);
+
+                    recordsAffected = comandoDet.ExecuteNonQuery();
                 }
 
 
                 //---------------------------------------------------------------------------------------------
-                foreach (var pedido in oEntidad.Pedidos )
+                foreach (var pedido in oEntidad.Pedidos)
                 {
 
                     comando = new SqlCommand("spVTD_RESTO_APERTURA_PEDIDO", conectar);
@@ -120,13 +166,13 @@ namespace Layer.AccessData
                     SqlParameter prm4 = new SqlParameter("@Pvt_cCodigo", Pvt_cCodigo);
                     SqlParameter prm5 = new SqlParameter("@Ped_cNummov", Ped_cNummov);
 
-                    
-                    SqlParameter prm7 = new SqlParameter("@Ped_nItem", pedido.Ped_nItem  );
-                    SqlParameter prm8 = new SqlParameter("@Cab_cCatalogo", pedido.Cab_cCatalogo );
-                    SqlParameter prm9 = new SqlParameter("@Ped_nCantidad", pedido.Ped_nCantidad );
-                    SqlParameter prm10 = new SqlParameter("@Ped_cComentario", pedido.Ped_cComentario );
-                    SqlParameter prm11 = new SqlParameter("@Ped_cEstado", pedido.Ped_cEstado );
-                    SqlParameter prm12 = new SqlParameter("@Ped_cUser", pedido.Ped_cUser );
+
+                    SqlParameter prm7 = new SqlParameter("@Ped_nItem", pedido.Ped_nItem);
+                    SqlParameter prm8 = new SqlParameter("@Cab_cCatalogo", pedido.Cab_cCatalogo);
+                    SqlParameter prm9 = new SqlParameter("@Ped_nCantidad", pedido.Ped_nCantidad);
+                    SqlParameter prm10 = new SqlParameter("@Ped_cComentario", pedido.Ped_cComentario);
+                    SqlParameter prm11 = new SqlParameter("@Ped_cEstado", pedido.Ped_cEstado);
+                    SqlParameter prm12 = new SqlParameter("@Ped_cUser", pedido.Ped_cUser);
 
                     comando.Parameters.Add(prm0);
                     comando.Parameters.Add(prm1);
@@ -134,7 +180,7 @@ namespace Layer.AccessData
                     comando.Parameters.Add(prm3);
                     comando.Parameters.Add(prm4);
                     comando.Parameters.Add(prm5);
-                    
+
                     comando.Parameters.Add(prm7);
                     comando.Parameters.Add(prm8);
                     comando.Parameters.Add(prm9);
@@ -145,7 +191,7 @@ namespace Layer.AccessData
                     recordsAffected = comando.ExecuteNonQuery();
 
                 }
-                
+
 
 
                 //---------------------------------------------------------------------------------------------
