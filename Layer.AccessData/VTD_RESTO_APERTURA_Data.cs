@@ -43,6 +43,13 @@ namespace Layer.AccessData
             GENERAL_Data oData = new GENERAL_Data();
             return await oData.SeleccionarRegistro("spVTD_RESTO_APERTURA", "BUSCARREGISTRO", "Layer.Entity", "VTD_RESTO_APERTURA_Entity", entidad);
         }
+        
+        public async Task<MENSAJE_Entity> AnularRegistro(VTD_RESTO_APERTURA_Entity entidad)
+        {
+            GENERAL_Data oData = new GENERAL_Data();
+            return await oData.EliminarRegistro("spVTD_RESTO_APERTURA", "ANULAR", "Layer.Entity", "VTD_RESTO_APERTURA_Entity", entidad);
+        }
+
 
         public async Task<MENSAJE_Entity> EliminarRegistro(VTD_RESTO_APERTURA_Entity entidad)
         {

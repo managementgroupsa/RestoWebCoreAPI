@@ -59,6 +59,16 @@ namespace restowebcore.Controllers
             return await oDominio.EliminarRegistro(entidad);
         }
 
+        [HttpPost("AnularRegistro")]
+        [Authorize(Roles = "Administrator,User")]
+        public async Task<MENSAJE_Entity> AnularRegistro(VTD_RESTO_APERTURA_Entity entidad)
+        {
+            VTD_RESTO_APERTURA_Domain oDominio = new VTD_RESTO_APERTURA_Domain();
+
+            return await oDominio.AnularRegistro(entidad);
+        }
+
+
         [HttpPost("InsertarRegistro")]
         [Authorize(Roles = "Administrator,User")]
         public async Task<MENSAJE_Entity> InsertarRegistro(VTD_RESTO_APERTURA_Entity entidades)
